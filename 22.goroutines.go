@@ -35,7 +35,13 @@ func main() {
 	// 如果不按的话  协程会并行执行
 	// 这里面的并行指的是go f()函数与go func()函数的执行
 	var input string
+	// 进行输入函数
 	fmt.Scanln(&input)
+	fmt.Println(input)
+	// 没来得及执行
+	go func(msg string) {
+		fmt.Println(msg)
+	}("ffffff")
 	fmt.Println("done")
 }
 

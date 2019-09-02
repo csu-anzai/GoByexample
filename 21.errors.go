@@ -61,6 +61,7 @@ func main() {
 	}
 	// 你如果想在程序中使用一个自定义错误类型中的数据，你需要通过类型断言来得到这个错误类型的实例。
 	_, e := f2(42)
+	// 结构体：42+信息
 	if ae, ok := e.(*argError); ok {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.prob)
