@@ -1,10 +1,10 @@
 package main
- 
+
 import (
 	"fmt"
 	"sync"
 )
- 
+
 func main() {
 	var l *sync.Mutex
 	l = new(sync.Mutex)

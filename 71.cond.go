@@ -5,6 +5,7 @@ import (
 	"sync"
 	"time"
 )
+
 var locker = new(sync.Mutex)
 var cond = sync.NewCond(locker)
 var waitgroup sync.WaitGroup
@@ -16,7 +17,7 @@ func test(x int) {
 	fmt.Println(x)
 	time.Sleep(time.Second * 1)
 	defer func() {
-		cond.L.Unlock()//释放锁
+		cond.L.Unlock() //释放锁
 		waitgroup.Done()
 	}()
 }
@@ -24,7 +25,7 @@ func test(x int) {
 func main() {
 	for i := 0; i < 5; i++ {
 		go test(i)
-		waitgroup.Add(1);
+		waitgroup.Add(1)
 	}
 	fmt.Println("start all")
 	time.Sleep(time.Second * 1)

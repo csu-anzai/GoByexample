@@ -28,6 +28,7 @@ func main() {
 	foo(b)
 	fmt.Println("该goroutine还可以执行")
 }
+
 // a=10
 // 该数的方根为： 3.1622776601683795
 // foo退出来了

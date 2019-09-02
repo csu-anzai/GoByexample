@@ -26,7 +26,7 @@ func main() {
 
 	// 如果你需要的仅仅是单纯的等待，你需要使用 time.Sleep。
 	// 定时器是有用原因之一就是你可以在定时器失效之前，取消这个定时器
-	timer2 := time.NewTimer(time.Second*5000000)
+	timer2 := time.NewTimer(time.Second * 5000000)
 	go func() {
 		<-timer2.C
 		fmt.Println("Timer 2 expired")

@@ -1,9 +1,11 @@
 package main
+
 import (
 	"encoding/json"
 	"fmt"
 	"os"
 )
+
 func main() {
 	type ColorGroup struct {
 		ID     int
@@ -21,4 +23,5 @@ func main() {
 	}
 	os.Stdout.Write(b)
 }
+
 // {"ID":1,"Name":"Reds","Colors":["Crimson","Red","Ruby","Maroon"]}

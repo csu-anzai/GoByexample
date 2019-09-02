@@ -8,8 +8,9 @@ type person struct {
 }
 
 var a int
+
 func main() {
-	a=1
+	a = 1
 
 	fmt.Println(&a)
 	fmt.Println(person{"Bob", 20})
@@ -26,7 +27,7 @@ func main() {
 
 	// 进行传递的地址
 	sp := &s
-	fmt.Println("sp",sp)
+	fmt.Println("sp", sp)
 	fmt.Println(sp.age)
 	// 下面是在进行修改sg.age的值
 	sp.age = 51

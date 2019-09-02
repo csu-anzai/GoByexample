@@ -5,7 +5,7 @@ import (
 )
 
 // 此处加号是作为一个连接词存在的
-func main(){
+func main() {
 	fmt.Println("go" + "lang")
 	fmt.Println("1+1=", 1+1)
 	fmt.Println("7/3=", 7/3)

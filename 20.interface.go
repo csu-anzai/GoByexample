@@ -1,11 +1,11 @@
 package main
 
 import "fmt"
+
 // import "math"
 
 // 接口：一个事物多个方法
 // 抽象：多个事物一个特性
-
 
 // 在我们的例子中，我们将让 rect 和 circle 实现这个接口
 type rect struct {
@@ -34,7 +34,6 @@ func (r rect) perim() float64 {
 	return 2*r.width + 2*r.height
 }
 
-
 // 如果一个变量的是接口类型，那么我们可以调用这个被命名的接口中的方法。
 // 这里有一个一通用的 measure 函数，利用这个特性，它可以用在任何 geometry 上。
 // 集合了两种方法的方法
@@ -51,6 +50,7 @@ func main() {
 	// 结构体类型 circle 和 rect 都实现了 geometry接口，所以我们可以使用它们的实例作为 measure 的参数。
 	measure(r)
 }
+
 // {3 4}
 // 12
 // 14
