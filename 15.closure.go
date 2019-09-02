@@ -27,3 +27,7 @@ func main() {
 	// 1
 	fmt.Println(newInts())
 }
+// 1
+// 2
+// 3
+// 1
