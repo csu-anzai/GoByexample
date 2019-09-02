@@ -10,7 +10,7 @@ func main() {
 		c1 <- "result 1"
 	}()
 
-	for i:=0;i<2;i++{
+	for i := 0; i < 2; i++ {
 		select {
 		case res := <-c1:
 			fmt.Println(res)
