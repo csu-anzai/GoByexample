@@ -11,6 +11,7 @@ func zeroval(ival int) {
 func zeroptr(iptr *int) {
 	//iptr本身是一个地址  *iptr就变成了变量
 	*iptr = 0
+	fmt.Println("pointer:",iptr)
 }
 func main() {
 	i := 1
@@ -35,5 +36,6 @@ func main() {
 
 // initial: 1
 // zeroval: 1
+// pointer: 0xc042052058
 // zeroptr: 0
-// pointer: 0xc042052080
+// pointer: 0xc042052058
