@@ -1,20 +1,13 @@
 package main
 
-// 关闭 一个通道意味着不能再向这个通道发送值了。
-// 这个特性可以用来给这个通道的接收方传达工作已经完成的信息。
-
 import "fmt"
 
-// 在这个例子中，我们将使用一个 jobs 通道来传
-// 递 main() 中 Go协程任务执行的结束信息到一个工作 Go 协程中。
-// 当我们没有多余的任务给这个工作 Go 协程时，我们将 close 这个 jobs 通道。
 func main() {
-	jobs := make(chan int, 5)
+	// 如果是堵塞channel，就会跑一个执行一个
+	// 如果是buffchannel，就不会跟着那么紧
+	jobs := make(chan int,5)
 	done := make(chan bool)
 
-	// 这是工作 Go 协程。使用 j, more := <- jobs 循环的从jobs 接收数据。
-	// 在接收的这个特殊的二值形式的值中，如果 jobs 已经关闭了，并且通道中所有的值都已经接收完毕，
-	// 那么 more 的值将是 false。当我们完成所有的任务时，将使用这个特性通过 done 通道去进行通知。
 	go func() {
 		for {
 			j, more := <-jobs
@@ -27,27 +20,21 @@ func main() {
 			}
 		}
 	}()
-	// 这里使用 jobs 发送 3 个任务到工作函数中，然后关闭 jobs。
-	for j := 1; j <= 3; j+-+ {
+
+	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
 	close(jobs)
 	fmt.Println("sent all jobs")
-	// 我们使用前面学到的通道同步方法等待任务结束。
-	// 等待done进行赋值  所以会一直堵塞  使得协成进行执行完毕
 
-	// 使得协成执行的方法
-	// 1.堵塞
-	// 2.延时
-	<-done
-
+	fmt.Println(<-done)
 	// sent job 1
-	// received job 1
 	// sent job 2
-	// received job 2
 	// sent job 3
-	// received job 3
 	// sent all jobs
+	// received job 1
+	// received job 2
+	// received job 3
 	// received all jobs
 }
