@@ -2,31 +2,26 @@ package main
 
 import "fmt"
 
-// channel是协程与协程之前的通道
-//
-// 在并发的 Go 程序中的 Go 协程的辅助特性：通道。
-// 通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。
-
 func main() {
-	//
-	// 通道的类型就是传递值的类型
-	//
-	// 新建一个通道
-	// 使用 make(chan val-type) 创建一个新的通道。通道类型就是他们需要传递值的类型。
-	// 此时 messages是一个通道
 	messages := make(chan string)
-	// 赋初值
-	// 使用 channel <- 语法 发送 一个新的值到通道中。这里我们在一个新的 Go 协程中
-	// 发送 "ping" 到上面创建的messages 通道中。
-	go func() { 
-		messages <- "ping" 
+
+	// channel与goroutine必须并存
+	// 如果只有channel，根本无法运行，因为全部死锁了
+	// 如果只有goroutine，协程根本不会执行，因为没时间，主程序已经结束了
+	// 因为有了堵塞，协程才会执行
+	go func(){
+		fmt.Println("2")
+		messages<-"aaaa"
 	}()
-	// 使用 <-channel 语法从通道中 接收 一个值。这里将接收我们在上面发送的 "ping" 消息并打印出来。
-	// 通道的初值赋值给一个变量
-	//
-	// 通道的传值使用<-
-	//
-	msg := <-messages
+
+	// channel等待写入数据，此处堵塞
+	// 协程写入数据后，会继续执行
+	fmt.Println("1");
+	msg:=<-messages
+
+
+	fmt.Println("3")
+
 	fmt.Println(msg)
 }
 
