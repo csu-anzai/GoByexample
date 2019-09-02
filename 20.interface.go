@@ -51,13 +51,6 @@ func main() {
 	// 结构体类型 circle 和 rect 都实现了 geometry接口，所以我们可以使用它们的实例作为 measure 的参数。
 	measure(r)
 }
-
-// {3 4}
-// 12
-// 14
-
-
-
 // {3 4}
 // 12
 // 14
