@@ -14,6 +14,8 @@ func Afunction(shownum int) {
 
 func main() {
 	for i := 0; i < 6; i++ {
+		// add与done只是用来统计数量的done为0的时候就结束
+		//   wait只是用来堵塞主函数的
 		waitgroup.Add(1) //每创建一个goroutine，就把任务队列中任务的数量+1
 		go Afunction(i)
 	}
