@@ -13,7 +13,7 @@ func main() {
 	argsWithProg := os.Args
 	argsWithoutProg := os.Args[1:]
 	// 你可以使用标准的索引位置方式取得单个参数的值。
-	arg := os.Args[3]
+	arg := os.Args[1]
 	fmt.Println(argsWithProg)
 	fmt.Println(argsWithoutProg)
 	fmt.Println(arg)
