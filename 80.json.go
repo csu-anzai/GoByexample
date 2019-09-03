@@ -41,12 +41,19 @@ func main() {
 	} else {
 		fmt.Println("\n")
 		fmt.Println(e)
-		fmt.Println(str)
+		fmt.Println("aaaaa",str)
 		fmt.Println(2)
 	}
 	//json字符串反序列化为对象---------------------------------End
 }
 
+// {}就是结构体
+// []就是切片
 // {[{1 [view add]} {2 [delete add update]}]}
+// {"ChgArr":[{"Mid":1,"Actions":["view","add"]},{"Mid":2,"Actions":["delete","add","update"]}]}
+// 1
+
+
+// json: cannot unmarshal object into Go value of type string
 // {"ChgArr":[{"Mid":1,"Actions":["view","add"]},{"Mid":2,"Actions":["delete","add","update"]}]}
 // 2
