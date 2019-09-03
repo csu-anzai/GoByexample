@@ -19,12 +19,12 @@ func main() {
 	for v := range ch {
 		fmt.Println("read value", v, "from ch")
 		time.Sleep(2 * time.Second)
-
 	}
 }
 
 // successfully wrote 0 to ch
 // successfully wrote 1 to ch
+
 // read value 0 from ch
 // successfully wrote 2 to ch
 // read value 1 from ch
