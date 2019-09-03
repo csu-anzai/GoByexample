@@ -31,3 +31,9 @@ func test() (err error) {
 // end test
 // start panic defer
 // mimic error: mimic error: 1
+
+
+
+
+
+
