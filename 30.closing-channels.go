@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	// 如果是堵塞channel，就会跑一个执行一个
 	// 如果是buffchannel，就不会跟着那么紧
-	jobs := make(chan int,5)
+	jobs := make(chan int)
 	done := make(chan bool)
 
 	go func() {
@@ -25,10 +25,12 @@ func main() {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
+	// 关闭通道的时候 读取通道的时候会读取到false
 	close(jobs)
 	fmt.Println("sent all jobs")
 
 	fmt.Println(<-done)
+	// 有缓冲通道的
 	// sent job 1
 	// sent job 2
 	// sent job 3
@@ -37,4 +39,15 @@ func main() {
 	// received job 2
 	// received job 3
 	// received all jobs
+
+	// 无缓冲通道的
+	// received job 1
+	// sent job 1
+	// sent job 2
+	// received job 2
+	// received job 3
+	// sent job 3
+	// sent all jobs
+	// received all jobs
+	// true
 }
