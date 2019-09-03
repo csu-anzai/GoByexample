@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"sync"
 )
+// waitgroup
+// 给协程标注 让程序不因为协程出现panic
 
 var waitgroup sync.WaitGroup
 
