@@ -1,11 +1,12 @@
+// 用once可以保证上面的oncebody被执行一次
 package main
-
+ 
 import (
 	"fmt"
 	"sync"
 	"time"
 )
-
+ 
 func main() {
 	var once sync.Once
 	onceBody := func() {
@@ -20,11 +21,11 @@ func main() {
 			done <- true
 		}(j)
 	}
-	<-done
+	fmt.Println(<-done)
 	// 表示等待所有的进行执行完成
 	time.Sleep(2 * time.Second)
 }
-
+ 
 // Only once
 // 0
 // 4
