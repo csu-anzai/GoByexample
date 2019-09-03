@@ -8,6 +8,7 @@ func main() {
 	// 这里是一个字符串的例子。
 	// 注意排序是原地更新的，所以他会改变给定的序列并且不返回一个新值。
 	strs := []string{"c", "a", "b"}
+	// 将切片排序为递增顺序
 	sort.Strings(strs)
 	fmt.Println("Strings:", strs)
 	// 一个 int 排序的例子。
