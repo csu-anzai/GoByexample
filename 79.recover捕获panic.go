@@ -6,7 +6,7 @@ import "math"
 func foo(a int) {
 	defer fmt.Println("foo退出来了")
 	defer func() {
-
+		// recover会获取panic里面的内容
 		if r := recover(); r != nil {
 			fmt.Printf("捕获到的错误：%s\n", r)
 		}
