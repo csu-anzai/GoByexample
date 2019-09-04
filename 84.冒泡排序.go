@@ -1,5 +1,3 @@
-//BubbleSort.go
-
 package main
 
 import "fmt"
